@@ -33,8 +33,8 @@ public class AppController {
     public Persona getPerson(@RequestParam int id){
         return Ipersona.findPersona(id).orElse(null);
     }
-
-    @PutMapping("/update-person/{id}")
+    @RequestMapping(value = "/update-person/{id}", method = {RequestMethod.PUT, RequestMethod.POST})
+    //@PutMapping("/update-person/{id}")
     public String updatePerson(@PathVariable int id,
                                @RequestParam String name){
         return Ipersona.updatePersona(id, name);
